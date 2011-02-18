@@ -25,3 +25,11 @@ exports.testString = function(test) {
 	test.deepEqual([0, 4+3+2, 116, 111, 116, 111, 0], p.asBuffer().asArray());
 	test.done();
 };
+
+exports.testHost = function(test) {
+	test.expect(1);
+	var p = new Packet();
+	p.Host('www.nodejs.org');
+	test.deepEqual(new Buffer("www.nodejs.org").asArray(), p.asBuffer().slice(4, p.length -1).asArray());
+	test.done();
+};
