@@ -33,3 +33,12 @@ exports.testHost = function(test) {
 	test.deepEqual(new Buffer("www.nodejs.org").asArray(), p.asBuffer().slice(4, p.length -1).asArray());
 	test.done();
 };
+
+exports.testTime = function(test) {
+	test.expect(1);
+	var p = new Packet();
+	var d = new Date();
+	p.Time(d);
+	test.equals(d.getTime() & 0xFF, p.asBuffer()[11]);
+	test.done();
+};
