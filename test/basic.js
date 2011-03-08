@@ -8,6 +8,15 @@ Buffer.prototype.asArray = function() {
 	return a;
 };
 
+exports.testInt8 = function(test) {
+	test.expect(2);
+	var p = new Packet();
+	p.appendInt8(42);
+	test.equals(1, p.length);
+	test.deepEqual([42], p.asBuffer().asArray());
+	test.done();
+};
+
 exports.testInt16 = function(test) {
 	test.expect(2);
 	var p = new Packet();
