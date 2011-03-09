@@ -8,6 +8,7 @@ Buffer.prototype.asArray = function() {
 	return a;
 };
 
+/*
 exports.testInt8 = function(test) {
 	test.expect(2);
 	var p = new Packet();
@@ -37,6 +38,7 @@ exports.testString = function(test) {
 	test.deepEqual([0, 4+3+2, 116, 111, 116, 111, 0], b.asArray());
 	test.done();
 };
+*/
 
 exports.testHost = function(test) {
 	test.expect(1);
