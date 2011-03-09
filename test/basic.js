@@ -42,7 +42,8 @@ exports.testHost = function(test) {
 	test.expect(1);
 	var p = new Packet();
 	p.Host('www.nodejs.org');
-	test.deepEqual(new Buffer("www.nodejs.org").asArray(), p.asBuffer().slice(4, p.length -1).asArray());
+	var b = p.asBuffer();
+	test.deepEqual(new Buffer("www.nodejs.org").asArray(), b.slice(4, b.length -1).asArray());
 	test.done();
 };
 
