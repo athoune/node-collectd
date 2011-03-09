@@ -12,8 +12,9 @@ exports.testInt8 = function(test) {
 	test.expect(2);
 	var p = new Packet();
 	p.appendInt8(42);
-	test.equals(1, p.length);
-	test.deepEqual([42], p.asBuffer().asArray());
+	var b = p.asBuffer();
+	test.equals(1, b.length);
+	test.deepEqual([42], b.asArray());
 	test.done();
 };
 
@@ -21,8 +22,9 @@ exports.testInt16 = function(test) {
 	test.expect(2);
 	var p = new Packet();
 	p.appendInt16(42);
-	test.equals(2, p.length);
-	test.deepEqual([0, 42], p.asBuffer().asArray());
+	var b = p.asBuffer();
+	test.equals(2, b.length);
+	test.deepEqual([0, 42], b.asArray());
 	test.done();
 };
 
@@ -30,8 +32,9 @@ exports.testString = function(test) {
 	test.expect(2);
 	var p = new Packet();
 	p.appendString('toto');
-	test.equals(4+3, p.length);
-	test.deepEqual([0, 4+3+2, 116, 111, 116, 111, 0], p.asBuffer().asArray());
+	var b = p.asBuffer();
+	test.equals(4+2+1, b.length);
+	test.deepEqual([0, 4+3+2, 116, 111, 116, 111, 0], b.asArray());
 	test.done();
 };
 
