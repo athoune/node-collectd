@@ -11,7 +11,7 @@ Buffer.prototype.asArray = function() {
 exports.testInt8 = function(test) {
 	test.expect(2);
 	var p = new Packet();
-	p.appendInt8(42);
+	p.int8(42);
 	var b = p.asBuffer();
 	test.equals(1, b.length);
 	test.deepEqual([42], b.asArray());
@@ -21,7 +21,7 @@ exports.testInt8 = function(test) {
 exports.testInt16 = function(test) {
 	test.expect(2);
 	var p = new Packet();
-	p.appendInt16(42);
+	p.int16(42);
 	var b = p.asBuffer();
 	test.equals(2, b.length);
 	test.deepEqual([0, 42], b.asArray());
@@ -31,7 +31,7 @@ exports.testInt16 = function(test) {
 exports.testString = function(test) {
 	test.expect(2);
 	var p = new Packet();
-	p.appendString('toto');
+	p.string('toto');
 	var b = p.asBuffer();
 	test.equals(4+2+1, b.length);
 	test.deepEqual([0, 4+3+2, 116, 111, 116, 111, 0], b.asArray());
